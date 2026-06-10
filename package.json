@@ -1,0 +1,56 @@
+{
+  "name": "ssrf-safe-fetch",
+  "version": "0.1.0",
+  "description": "SSRF protection for server-side requests: URL validation, private/reserved IP blocking (IPv4 + IPv6), and a fetch wrapper that re-validates every redirect hop.",
+  "keywords": [
+    "ssrf",
+    "security",
+    "fetch",
+    "url-validation",
+    "node",
+    "private-ip",
+    "redirect-validation",
+    "server-side-request-forgery"
+  ],
+  "author": "Anhthien Nguyen <anhthiennguyen99@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chinozilla/ssrf-safe-fetch.git"
+  },
+  "homepage": "https://github.com/Chinozilla/ssrf-safe-fetch#readme",
+  "bugs": {
+    "url": "https://github.com/Chinozilla/ssrf-safe-fetch/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}
